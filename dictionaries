@@ -1,0 +1,61 @@
+# 1. Создайте словарь из трёх учеников и их оценок. Выведите оценку одного ученика по его имени.
+students = {"Анна": 5, "Иван": 4, "Мария": 5}
+print(students["Иван"])
+
+# 2. Дан словарь. Добавьте в него новую пару, измените значение одного из ключей, удалите другой ключ и выведите результат.
+d = {"a": 1, "b": 2, "c": 3}
+d["d"] = 4
+d["a"] = 100
+del d["b"]
+print(d)
+
+# 3. Дан словарь и ключ. Выведите значение по этому ключу, а если такого ключа нет, выведите «Нет такого ключа».
+d = {"яблоко": 10, "банан": 20}
+key = "апельсин"
+print(d.get(key, "Нет такого ключа"))
+
+# 4. Дан словарь. Выведите отдельно все его ключи, все значения и количество пар.
+d = {"name": "Иван", "age": 20, "city": "Москва"}
+print(list(d.keys()))
+print(list(d.values()))
+print(len(d))
+
+# 5. Дан словарь товаров и их цен. Выведите каждый товар и его цену с новой строки.
+products = {"Хлеб": 50, "Молоко": 80, "Сыр": 300}
+for name, price in products.items():
+    print(name, price)
+
+# 6. Дан словарь товаров и их цен. Найдите сумму всех цен и название самого дорогого товара.
+products = {"Хлеб": 50, "Молоко": 80, "Сыр": 300}
+total_price = sum(products.values())
+max_product = max(products, key=products.get)
+print(total_price, max_product)
+
+# 7. Дана строка. Посчитайте, сколько раз в ней встречается каждый символ, и сохраните результат в словарь.
+text = "hello world"
+char_counts = {}
+for char in text:
+    char_counts[char] = char_counts.get(char, 0) + 1
+print(char_counts)
+
+# 8. Дана строка из слов через пробел. Посчитайте, сколько раз встречается каждое слово, и выведите самое частое.
+text = "яблоко банан яблоко апельсин яблоко банан"
+words = text.split()
+word_counts = {}
+for word in words:
+    word_counts[word] = word_counts.get(word, 0) + 1
+most_frequent = max(word_counts, key=word_counts.get)
+print(word_counts)
+print(most_frequent)
+
+# 9. Дан словарь. Создайте новый словарь, в котором ключи и значения поменяны местами.
+d = {"a": 1, "b": 2, "c": 3}
+swapped_d = {value: key for key, value in d.items()}
+print(swapped_d)
+
+# 10. Даны два списка одинаковой длины: страны и их столицы. Составьте из них словарь и выведите столицу страны, которую введёт пользователь.
+countries = ["Россия", "Франция", "Япония"]
+capitals = ["Москва", "Париж", "Токио"]
+country_capitals = dict(zip(countries, capitals))
+user_country = input("Введите страну: ")
+print(country_capitals.get(user_country, "Нет такой страны в словаре"))
